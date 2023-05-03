@@ -2,11 +2,14 @@
 #include <stdlib.h>
 
 int main(int argc, char *argv[]) {
-    FILE *fp = fopen(argv[1], "r");
-    if (fp == NULL) {
-        printf("tomcat: %s: No such file\n", argv[1]);
-    } else {
-        printf("Success! %s is a file!\n", argv[1]);
+    for (int i = 1; i < argc; ++i) {
+        FILE *fp = fopen(argv[i], "r");
+        if (fp == NULL) {
+            printf("tomcat: %s: No such file\n", argv[i]);
+        } else {
+            printf("Success! %s is a file!\n", argv[i]);
+            fclose(fp);
+        }
     }
     return EXIT_SUCCESS;
 }
