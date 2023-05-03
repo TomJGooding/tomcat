@@ -6,10 +6,10 @@ int main(int argc, char *argv[]) {
         FILE *fp = fopen(argv[i], "r");
         if (fp == NULL) {
             printf("tomcat: %s: No such file\n", argv[i]);
-        } else {
-            printf("Success! %s is a file!\n", argv[i]);
-            fclose(fp);
+            continue;
         }
+        printf("Success! %s is a file!\n", argv[i]);
+        fclose(fp);
     }
     return EXIT_SUCCESS;
 }
